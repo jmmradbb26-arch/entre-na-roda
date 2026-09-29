@@ -8,6 +8,11 @@
 
 **Input**: User description: "Aplicação web educacional "Entre na Roda" para crianças do 3º ao 5º ano (8 a 10 anos), componente Educação Física, unidade temática Lutas. Habilidade principal da BNCC: EF35EF15 — identificar características das lutas de matriz africana, reconhecendo as diferenças entre luta e briga. A luta trabalhada é a capoeira. A aplicação é usada antes da aula prática, em duplas, em celular, tablet ou computador, sem cadastro. Todos os textos pedagógicos (situações, perguntas, pistas, feedbacks, fatos históricos) estão definidos em docs/conteudo-pedagogico.md e devem ser usados exatamente como estão."
 
+## Clarifications
+
+### Session 2026-09-29
+- Q: Qual métrica quantitativa específica deve substituir o termo vago "opera perfeitamente" no critério de sucesso SC-003 para garantir a validação objetiva em diferentes larguras de tela? → A: B sem rolagem horizontal
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Realizar a Etapa 1: Luta ou briga? (Priority: P1)
@@ -89,7 +94,7 @@ Como um professor de Educação Física, quero acessar informações pedagógica
 
 - **SC-001**: Alunos de 8 a 10 anos concluem o fluxo interativo completo (Etapas 1 e 2) em 15 a 20 minutos, sem necessidade de suporte técnico.
 - **SC-002**: 100% dos textos pedagógicos, feedbacks, pistas e fatos históricos exibidos coincidem exatamente com o conteúdo oficial ratificado em `docs/conteudo-pedagogico.md`.
-- **SC-003**: A aplicação opera perfeitamente em visualizadores e dispositivos móveis ou desktops com largura de 360 px a 1440 px, sem rolagem horizontal ou falhas de toque.
+- **SC-003**: A aplicação renderiza corretamente sem sobreposição de elementos e sem rolagem horizontal em resoluções de 360px, 768px e 1280px.
 - **SC-004**: Zero dados pessoais ou de telemetria de crianças são coletados, gravados em banco de dados ou transmitidos pela rede.
 
 ## Assumptions
