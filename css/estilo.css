@@ -1,0 +1,182 @@
+/* Estilos globais — Entre na Roda */
+:root {
+  --cor-fundo: #f4f6f8;
+  --cor-principal: #1b4332;
+  --cor-secundaria: #2d6a4f;
+  --cor-destaque: #d8f3dc;
+  --cor-texto: #212529;
+  --cor-branco: #ffffff;
+  --cor-luta: #2d6a4f;
+  --cor-briga: #bc4749;
+  --cor-pista: #e9c46a;
+  --transicao: 0.2s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-size: 1.125rem; /* mínimo 18px */
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--cor-branco);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--cor-principal);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--cor-secundaria);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.progresso {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6c757d;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-situacao {
+  background-color: var(--cor-destaque);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.375rem;
+  color: #081c15;
+  font-weight: 500;
+}
+
+.botoes-acao {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 52px; /* >= 44x44px */
+  min-width: 160px;
+  transition: var(--transicao);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: var(--cor-principal);
+  transform: translateY(-2px);
+}
+
+button:focus {
+  outline: 4px solid #457b9d;
+  outline-offset: 2px;
+}
+
+.btn-luta {
+  background-color: var(--cor-luta);
+}
+
+.btn-briga {
+  background-color: var(--cor-briga);
+}
+
+.feedback-container {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: none;
+}
+
+.feedback-container.sucesso {
+  background-color: #d8f3dc;
+  color: #1b4332;
+  border: 2px solid var(--cor-luta);
+  display: block;
+}
+
+.feedback-container.pista {
+  background-color: #fefae0;
+  color: #7f4f24;
+  border: 2px solid var(--cor-pista);
+  display: block;
+}
+
+.feedback-container.explicacao {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 2px solid var(--cor-briga);
+  display: block;
+}
+
+.link-professor {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #6c757d;
+  text-decoration: underline;
+}
+
+.link-professor:hover {
+  color: var(--cor-principal);
+}
+
+.escondido {
+  display: none !important;
+}
+
+/* Responsividade para viewports estreitos (360px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 1.75rem;
+  }
+  .card-situacao {
+    font-size: 1.125rem;
+  }
+  button {
+    width: 100%;
+    min-width: unset;
+  }
+}

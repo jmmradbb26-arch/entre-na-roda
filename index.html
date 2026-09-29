@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entre na Roda</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <main class="container">
+    <!-- Tela Inicial -->
+    <section id="tela-inicial">
+      <h1>Entre na Roda</h1>
+      <p>Descubra como a capoeira ensina a diferença entre luta e briga. Vamos brincar e aprender juntos em duplas!</p>
+      
+      <div class="botoes-acao">
+        <button id="btn-comecar">Começar</button>
+        <button id="btn-audio" class="escondido" aria-label="Ouvir instrução">Ouvir Instrução</button>
+      </div>
+
+      <div class="progresso">Etapa 1 de 2</div>
+
+      <div>
+        <a href="professor.html" class="link-professor">Área do Professor</a>
+      </div>
+    </section>
+
+    <!-- Tela da Etapa 1 -->
+    <section id="etapa-1" class="escondido">
+      <div id="progresso-etapa1" class="progresso">Situação 1 de 8</div>
+      <p id="instrucao-etapa1">Leia cada situação. Ela mostra uma luta ou uma briga?</p>
+
+      <div id="card-situacao" class="card-situacao">
+        <!-- Texto da situação inserido via JS -->
+      </div>
+
+      <div id="botoes-resposta" class="botoes-acao">
+        <button id="btn-luta" class="btn-luta">É luta</button>
+        <button id="btn-briga" class="btn-briga">É briga</button>
+      </div>
+
+      <div id="feedback-box" class="feedback-container">
+        <!-- Feedback, pista ou explicação inseridos via JS -->
+      </div>
+
+      <div class="botoes-acao">
+        <button id="btn-avancar" class="escondido">Avançar</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/conteudo.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

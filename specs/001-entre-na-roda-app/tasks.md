@@ -20,9 +20,9 @@ description: "Task list for Entre na Roda Web App implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan (`css/`, `js/`, `docs/`)
-- [ ] T002 [P] Create empty `.nojekyll` file at root for GitHub Pages publication
-- [ ] T003 [P] Create manual test script in `docs/roteiro-testes.md` covering 360px, 768px, and 1280px viewports
+- [X] T001 Create project structure per implementation plan (`css/`, `js/`, `docs/`)
+- [X] T002 [P] Create empty `.nojekyll` file at root for GitHub Pages publication
+- [X] T003 [P] Create manual test script in `docs/roteiro-testes.md` covering 360px, 768px, and 1280px viewports
 
 ---
 
@@ -32,8 +32,8 @@ description: "Task list for Entre na Roda Web App implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Create structured JavaScript content file in `js/conteudo.js` containing all texts from `docs/conteudo-pedagogico.md` verbatim (Etapa 1, Etapa 2, Tela final, orientações)
-- [ ] T005 [P] Create baseline responsive stylesheet in `css/estilo.css` adhering to WCAG 2.1 AA contrast, minimum font size 18px, touch targets >= 44x44px, and no horizontal scrolling from 360px to 1440px
+- [X] T004 Create structured JavaScript content file in `js/conteudo.js` containing all texts from `docs/conteudo-pedagogico.md` verbatim (Etapa 1, Etapa 2, Tela final, orientações)
+- [X] T005 [P] Create baseline responsive stylesheet in `css/estilo.css` adhering to WCAG 2.1 AA contrast, minimum font size 18px, touch targets >= 44x44px, and no horizontal scrolling from 360px to 1440px
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -47,11 +47,11 @@ description: "Task list for Entre na Roda Web App implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Implement initial screen layout and main container structure in `index.html`
-- [ ] T007 [P] [US1] Implement application initialization and volatile session state management (`SessaoProgresso`) in `js/app.js`
-- [ ] T008 [US1] Implement Etapa 1 navigation and display logic for the 8 situations ("É luta" / "É briga") in `js/app.js` (depends on T004, T007)
-- [ ] T009 [US1] Implement pedagogical feedback mechanism (correct answer feedback, first-error hint with retry, second-error explanation) in `js/app.js`
-- [ ] T010 [US1] Implement optional text-to-speech support via Web Speech API (`speechSynthesis`) for instruction read-aloud in `js/app.js`
+- [X] T006 [P] [US1] Implement initial screen layout and main container structure in `index.html`
+- [X] T007 [P] [US1] Implement application initialization and volatile session state management (`SessaoProgresso`) in `js/app.js`
+- [X] T008 [US1] Implement Etapa 1 navigation and display logic for the 8 situations ("É luta" / "É briga") in `js/app.js` (depends on T004, T007)
+- [X] T009 [US1] Implement pedagogical feedback mechanism (correct answer feedback, first-error hint with retry, second-error explanation) in `js/app.js`
+- [X] T010 [US1] Implement optional text-to-speech support via Web Speech API (`speechSynthesis`) for instruction read-aloud in `js/app.js`
 
 **Checkpoint**: User Story 1 is fully functional and testable independently (MVP milestone)
 
