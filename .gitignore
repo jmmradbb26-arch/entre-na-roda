@@ -1,0 +1,14 @@
+# Universal
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+
+# Node / Environment
+node_modules/
+dist/
+build/
+*.log
+.env*

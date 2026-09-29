@@ -47,6 +47,51 @@
         <button id="btn-avancar" class="escondido">Avançar</button>
       </div>
     </section>
+
+    <!-- Tela da Etapa 2 -->
+    <section id="etapa-2" class="escondido">
+      <div id="progresso-etapa2" class="progresso">Desafio 1 de 5</div>
+      <p id="instrucao-etapa2">Agora você vai conhecer a roda de capoeira. Escolha a resposta certa.</p>
+
+      <div id="card-desafio" class="card-situacao">
+        <!-- Pergunta inserida via JS -->
+      </div>
+
+      <div id="botoes-opcoes" class="botoes-acao" style="flex-direction: column; align-items: stretch;">
+        <!-- Opções de múltipla escolha inseridas via JS -->
+      </div>
+
+      <div id="feedback-box-etapa2" class="feedback-container">
+        <!-- Feedback, pista ou explicação inseridos via JS -->
+      </div>
+
+      <div class="botoes-acao">
+        <button id="btn-avancar-etapa2" class="escondido">Avançar</button>
+      </div>
+    </section>
+
+    <!-- Tela Final -->
+    <section id="tela-final" class="escondido">
+      <h2 id="titulo-final">Você completou a roda!</h2>
+      <div id="resumo-pontos" style="margin: 1.5rem 0; font-size: 1.25rem;">
+        <!-- Resumo de acertos inserido via JS -->
+      </div>
+
+      <div id="secao-vale-rever" style="margin: 1.5rem 0; text-align: left; background-color: #fefae0; padding: 1rem; border-radius: 8px;" class="escondido">
+        <h3>Vale rever:</h3>
+        <ul id="lista-vale-rever" style="margin-left: 1.5rem; margin-top: 0.5rem; font-size: 1.1rem;">
+          <!-- Pistas erradas inseridas via JS -->
+        </ul>
+      </div>
+
+      <p id="mensagem-pratica" style="font-weight: 500; color: var(--cor-principal); margin: 1.5rem 0;">
+        Agora você já sabe: na luta tem regra, respeito e cuidado com o colega. Na próxima aula, a gente leva isso para a roda na quadra!
+      </p>
+
+      <div class="botoes-acao">
+        <button id="btn-reiniciar">Jogar de novo</button>
+      </div>
+    </section>
   </main>
 
   <script src="js/conteudo.js"></script>

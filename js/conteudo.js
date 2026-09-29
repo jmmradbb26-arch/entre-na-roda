@@ -48,7 +48,7 @@ const CONTEUDO_PEDAGOGICO = {
         respostaCorreta: "É briga",
         acertou: "Isso! Xingar e puxar são formas de agressão. Palavras também podem machucar.",
         pista: "Xingar alguém também é uma forma de agressão?",
-        explicacao: "É briga. Xingamentos e puxões são agressões, com palavras e com o corpo. Não há jogo nem regra combinada."
+        explicacao: "É briga. Xingamentos e puxões são agressões, com palavras e com o corpo. Não há jogo nor regra combinada."
       },
       {
         id: 7,
@@ -67,5 +67,65 @@ const CONTEUDO_PEDAGOGICO = {
         explicacao: "É luta. Na roda, o jogo segue o berimbau: quando ele para, o jogo para. Seguir esse sinal é respeitar as regras."
       }
     ]
+  },
+  etapa2: {
+    instrucao: "Agora você vai conhecer a roda de capoeira. Escolha a resposta certa.",
+    desafios: [
+      {
+        id: "a1",
+        pergunta: "Qual instrumento tem um arco de madeira, um arame e uma cabaça?",
+        opcoes: ["Berimbau", "Atabaque", "Pandeiro"],
+        respostaCorreta: "Berimbau",
+        acertou: "Isso! O berimbau é o instrumento mais importante da roda.",
+        pista: "É o instrumento que parece um arco, como o de flecha.",
+        explicacao: "É o berimbau: um arco de madeira com um arame esticado e uma cabaça, que faz o som ficar mais forte.",
+        voceSabia: "A capoeira foi criada e mantida viva por pessoas negras escravizadas no Brasil. Ela foi uma forma de resistir e de preservar sua cultura."
+      },
+      {
+        id: "a2",
+        pergunta: "Qual instrumento é um tambor alto, tocado com as mãos?",
+        opcoes: ["Atabaque", "Berimbau", "Pandeiro"],
+        respostaCorreta: "Atabaque",
+        acertou: "Isso! O atabaque marca o ritmo forte da roda.",
+        pista: "É um tambor. O som vem da batida das mãos no couro.",
+        explicacao: "É o atabaque: um tambor alto de madeira e couro, tocado com as mãos.",
+        voceSabia: "Os instrumentos, os cantos e o jogo fazem parte da roda. Por isso a capoeira junta luta, música e cultura."
+      },
+      {
+        id: "a3",
+        pergunta: "Qual instrumento é redondo e tem pequenas platinelas de metal que chacoalham?",
+        opcoes: ["Pandeiro", "Atabaque", "Berimbau"],
+        respostaCorreta: "Pandeiro",
+        acertou: "Isso! O pandeiro completa o ritmo da roda.",
+        pista: "É redondo e faz som quando balança.",
+        explicacao: "É o pandeiro: redondo, com couro no meio e platinelas de metal ao redor.",
+        voceSabia: null
+      },
+      {
+        id: "b",
+        pergunta: "Na roda de capoeira, quem comanda o jogo?",
+        opcoes: ["O berimbau, tocado geralmente pelo mestre", "Quem é mais forte", "Quem grita mais alto"],
+        respostaCorreta: "O berimbau, tocado geralmente pelo mestre",
+        acertou: "Isso! O toque do berimbau diz como deve ser o jogo e quando ele começa e termina.",
+        pista: "Lembre-se: quando esse instrumento para, o jogo também para.",
+        explicacao: "Quem comanda é o berimbau, geralmente tocado pelo mestre. Força ou grito não decidem nada na roda.",
+        voceSabia: "Em 1890, uma lei proibiu a capoeira no Brasil, e quem jogava podia ser preso. Mesmo assim, os capoeiristas mantiveram a capoeira viva."
+      },
+      {
+        id: "c",
+        pergunta: "Qual é a forma respeitosa de entrar na roda?",
+        opcoes: ["Agachar ao pé do berimbau e cumprimentar o parceiro", "Entrar correndo no meio do jogo", "Empurrar quem está jogando para tomar o lugar"],
+        respostaCorreta: "Agachar ao pé do berimbau e cumprimentar o parceiro",
+        acertou: "Isso! Entrar com respeito é o primeiro passo de um bom jogo.",
+        pista: "Pense na situação de Bia e Téo, lá da etapa 1.",
+        explicacao: "A forma respeitosa é agachar ao pé do berimbau e cumprimentar o parceiro antes de começar.",
+        voceSabia: "Em 2008, a roda de capoeira virou patrimônio cultural do Brasil. Em 2014, a UNESCO a reconheceu como patrimônio de toda a humanidade."
+      }
+    ]
+  },
+  telaFinal: {
+    titulo: "Você completou a roda!",
+    mensagemPratica: "Agora você já sabe: na luta tem regra, respeito e cuidado com o colega. Na próxima aula, a gente leva isso para a roda na quadra!",
+    botaoReiniciar: "Jogar de novo"
   }
 };

@@ -65,9 +65,9 @@ description: "Task list for Entre na Roda Web App implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T011 [P] [US2] Implement Etapa 2 transition and display logic for the 5 multiple-choice challenges with historical facts in `js/app.js`
-- [ ] T012 [US2] Implement incorrect question tracking and compilation of the "Vale rever" review section for the Final Screen in `js/app.js`
-- [ ] T013 [US2] Implement Final Screen markup and logic with first-attempt score summary, practical class preparation message, and "Jogar de novo" button in `index.html` and `js/app.js`
+- [X] T011 [P] [US2] Implement Etapa 2 transition and display logic for the 5 multiple-choice challenges with historical facts in `js/app.js`
+- [X] T012 [US2] Implement incorrect question tracking and compilation of the "Vale rever" review section for the Final Screen in `js/app.js`
+- [X] T013 [US2] Implement Final Screen markup and logic with first-attempt score summary, practical class preparation message, and "Jogar de novo" button in `index.html` and `js/app.js`
 
 **Checkpoint**: User Stories 1 AND 2 both work independently
 
@@ -81,8 +81,8 @@ description: "Task list for Entre na Roda Web App implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T014 [P] [US3] Create teacher guidance page containing BNCC skill EF35EF15, objectives, estimated time (15-20 min), and usage tips in `professor.html`
-- [ ] T015 [US3] Add discrete navigation link to `professor.html` from the initial screen in `index.html`
+- [X] T014 [P] [US3] Create teacher guidance page containing BNCC skill EF35EF15, objectives, estimated time (15-20 min), and usage tips in `professor.html`
+- [X] T015 [US3] Add discrete navigation link to `professor.html` from the initial screen in `index.html`
 
 **Checkpoint**: All user stories are independently functional
 
@@ -92,8 +92,8 @@ description: "Task list for Entre na Roda Web App implementation"
 
 **Purpose**: Cross-cutting verification, polish, and validation
 
-- [ ] T016 [P] Perform visual inspection and responsiveness validation across 360px, 768px, and 1280px viewports per `docs/roteiro-testes.md`
-- [ ] T017 Execute accessibility review (WCAG 2.1 AA) and verify zero personal data collection / telemetry
+- [X] T016 [P] Perform visual inspection and responsiveness validation across 360px, 768px, and 1280px viewports per `docs/roteiro-testes.md`
+- [X] T017 Execute accessibility review (WCAG 2.1 AA) and verify zero personal data collection / telemetry
 
 ---
 

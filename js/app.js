@@ -1,20 +1,23 @@
-// Lógica da aplicação — Entre na Roda (Etapa 1 & Setup)
+// Lógica da aplicação — Entre na Roda (Etapa 1, Etapa 2 e Tela Final)
 
 document.addEventListener("DOMContentLoaded", () => {
   // Estado da Sessão
   const estado = {
-    etapa: 0, // 0: Inicial, 1: Etapa 1
-    indiceSituacao: 0,
+    etapa: 0, // 0: Inicial, 1: Etapa 1, 2: Etapa 2, 3: Final
+    indiceQuestao: 0,
     tentativas: 1,
-    acertosDePrimeira: 0
+    acertosDePrimeiraEtapa1: 0,
+    acertosDePrimeiraEtapa2: 0,
+    questoesComErro: []
   };
 
-  // Elementos do DOM
+  // Elementos DOM - Geral e Tela Inicial
   const telaInicial = document.getElementById("tela-inicial");
-  const telaEtapa1 = document.getElementById("etapa-1");
   const btnComecar = document.getElementById("btn-comecar");
   const btnAudio = document.getElementById("btn-audio");
-  
+
+  // Elementos DOM - Etapa 1
+  const telaEtapa1 = document.getElementById("etapa-1");
   const progressoEtapa1 = document.getElementById("progresso-etapa1");
   const cardSituacao = document.getElementById("card-situacao");
   const botoesResposta = document.getElementById("botoes-resposta");
@@ -22,6 +25,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnBriga = document.getElementById("btn-briga");
   const feedbackBox = document.getElementById("feedback-box");
   const btnAvancar = document.getElementById("btn-avancar");
+
+  // Elementos DOM - Etapa 2
+  const telaEtapa2 = document.getElementById("etapa-2");
+  const progressoEtapa2 = document.getElementById("progresso-etapa2");
+  const cardDesafio = document.getElementById("card-desafio");
+  const botoesOpcoes = document.getElementById("botoes-opcoes");
+  const feedbackBoxEtapa2 = document.getElementById("feedback-box-etapa2");
+  const btnAvancarEtapa2 = document.getElementById("btn-avancar-etapa2");
+
+  // Elementos DOM - Tela Final
+  const telaFinal = document.getElementById("tela-final");
+  const resumoPontos = document.getElementById("resumo-pontos");
+  const secaoValeRever = document.getElementById("secao-vale-rever");
+  const listaValeRever = document.getElementById("lista-vale-rever");
+  const btnReiniciar = document.getElementById("btn-reiniciar");
 
   // Suporte a síntese de voz (Web Speech API)
   if ("speechSynthesis" in window) {
@@ -37,22 +55,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // Iniciar Etapa 1
   btnComecar.addEventListener("click", () => {
     estado.etapa = 1;
-    estado.indiceSituacao = 0;
+    estado.indiceQuestao = 0;
     estado.tentativas = 1;
-    estado.acertosDePrimeira = 0;
+    estado.acertosDePrimeiraEtapa1 = 0;
+    estado.acertosDePrimeiraEtapa2 = 0;
+    estado.questoesComErro = [];
 
     telaInicial.classList.add("escondido");
     telaEtapa1.classList.remove("escondido");
 
-    carregarSituacao();
+    carregarSituacaoEtapa1();
   });
 
-  // Carregar situação atual da Etapa 1
-  function carregarSituacao() {
+  // --- ETAPA 1 LOGIC ---
+  function carregarSituacaoEtapa1() {
     const situacoes = CONTEUDO_PEDAGOGICO.etapa1.situacoes;
-    const sitAtual = situacoes[estado.indiceSituacao];
+    const sitAtual = situacoes[estado.indiceQuestao];
 
-    progressoEtapa1.textContent = `Situação ${estado.indiceSituacao + 1} de ${situacoes.length}`;
+    progressoEtapa1.textContent = `Situação ${estado.indiceQuestao + 1} de ${situacoes.length}`;
     cardSituacao.textContent = sitAtual.texto;
 
     feedbackBox.className = "feedback-container";
@@ -64,39 +84,35 @@ document.addEventListener("DOMContentLoaded", () => {
     estado.tentativas = 1;
   }
 
-  // Tratar clique em resposta ("É luta" / "É briga")
-  function responder(escolha) {
+  function responderEtapa1(escolha) {
     const situacoes = CONTEUDO_PEDAGOGICO.etapa1.situacoes;
-    const sitAtual = situacoes[estado.indiceSituacao];
+    const sitAtual = situacoes[estado.indiceQuestao];
 
     botoesResposta.classList.add("escondido");
 
     if (escolha === sitAtual.respostaCorreta) {
-      // Acertou
       if (estado.tentativas === 1) {
-        estado.acertosDePrimeira++;
+        estado.acertosDePrimeiraEtapa1++;
       }
       feedbackBox.textContent = sitAtual.acertou;
       feedbackBox.className = "feedback-container sucesso";
       feedbackBox.style.display = "block";
       btnAvancar.classList.remove("escondido");
     } else {
-      // Errou
       if (estado.tentativas === 1) {
-        // Primeiro erro: dar pista e tentar de novo
         estado.tentativas = 2;
+        if (!estado.questoesComErro.includes(sitAtual.pista)) {
+          estado.questoesComErro.push(sitAtual.pista);
+        }
         feedbackBox.textContent = `Pista: ${sitAtual.pista}`;
         feedbackBox.className = "feedback-container pista";
         feedbackBox.style.display = "block";
         
-        // Mostrar botão de tentar de novo ou reativar botões
-        // Na prática, reapresentamos os botões para a segunda tentativa
         setTimeout(() => {
           botoesResposta.classList.remove("escondido");
           btnAvancar.classList.add("escondido");
-        }, 500);
+        }, 300);
       } else {
-        // Segundo erro: revelar resposta correta com explicação
         feedbackBox.textContent = `Explicação: ${sitAtual.explicacao}`;
         feedbackBox.className = "feedback-container explicacao";
         feedbackBox.style.display = "block";
@@ -105,20 +121,129 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  btnLuta.addEventListener("click", () => responder("É luta"));
-  btnBriga.addEventListener("click", () => responder("É briga"));
+  btnLuta.addEventListener("click", () => responderEtapa1("É luta"));
+  btnBriga.addEventListener("click", () => responderEtapa1("É briga"));
 
-  // Botão Avançar / Próxima Situação
   btnAvancar.addEventListener("click", () => {
-    estado.indiceSituacao++;
+    estado.indiceQuestao++;
     const situacoes = CONTEUDO_PEDAGOGICO.etapa1.situacoes;
 
-    if (estado.indiceSituacao < situacoes.length) {
-      carregarSituacao();
+    if (estado.indiceQuestao < situacoes.length) {
+      carregarSituacaoEtapa1();
     } else {
-      // Fim da Etapa 1 (por ora, transição simples ou alerta até implementar Etapa 2)
-      alert(`Parabéns! Você concluiu a Etapa 1. Acertos de primeira: ${estado.acertosDePrimeira} de ${situacoes.length}. (Etapa 2 em desenvolvimento).`);
-      location.reload();
+      // Transição para Etapa 2
+      estado.etapa = 2;
+      estado.indiceQuestao = 0;
+      estado.tentativas = 1;
+
+      telaEtapa1.classList.add("escondido");
+      telaEtapa2.classList.remove("escondido");
+
+      carregarDesafioEtapa2();
     }
+  });
+
+  // --- ETAPA 2 LOGIC ---
+  function carregarDesafioEtapa2() {
+    const desafios = CONTEUDO_PEDAGOGICO.etapa2.desafios;
+    const desAtual = desafios[estado.indiceQuestao];
+
+    progressoEtapa2.textContent = `Desafio ${estado.indiceQuestao + 1} de ${desafios.length}`;
+    cardDesafio.textContent = desAtual.pergunta;
+
+    feedbackBoxEtapa2.className = "feedback-container";
+    feedbackBoxEtapa2.textContent = "";
+    feedbackBoxEtapa2.style.display = "none";
+
+    botoesOpcoes.innerHTML = "";
+    botoesOpcoes.classList.remove("escondido");
+    btnAvancarEtapa2.classList.add("escondido");
+    estado.tentativas = 1;
+
+    desAtual.opcoes.forEach(opcao => {
+      const btn = document.createElement("button");
+      btn.textContent = opcao;
+      btn.style.margin = "0.5rem 0";
+      btn.addEventListener("click", () => responderEtapa2(opcao));
+      botoesOpcoes.appendChild(btn);
+    });
+  }
+
+  function responderEtapa2(escolha) {
+    const desafios = CONTEUDO_PEDAGOGICO.etapa2.desafios;
+    const desAtual = desafios[estado.indiceQuestao];
+
+    botoesOpcoes.classList.add("escondido");
+
+    if (escolha === desAtual.respostaCorreta) {
+      if (estado.tentativas === 1) {
+        estado.acertosDePrimeiraEtapa2++;
+      }
+      let textoMsg = desAtual.acertou;
+      if (desAtual.voceSabia) {
+        textoMsg += ` Você sabia? ${desAtual.voceSabia}`;
+      }
+      feedbackBoxEtapa2.textContent = textoMsg;
+      feedbackBoxEtapa2.className = "feedback-container sucesso";
+      feedbackBoxEtapa2.style.display = "block";
+      btnAvancarEtapa2.classList.remove("escondido");
+    } else {
+      if (estado.tentativas === 1) {
+        estado.tentativas = 2;
+        if (!estado.questoesComErro.includes(desAtual.pista)) {
+          estado.questoesComErro.push(desAtual.pista);
+        }
+        feedbackBoxEtapa2.textContent = `Pista: ${desAtual.pista}`;
+        feedbackBoxEtapa2.className = "feedback-container pista";
+        feedbackBoxEtapa2.style.display = "block";
+        
+        setTimeout(() => {
+          botoesOpcoes.classList.remove("escondido");
+          btnAvancarEtapa2.classList.add("escondido");
+        }, 300);
+      } else {
+        feedbackBoxEtapa2.textContent = `Explicação: ${desAtual.explicacao}`;
+        feedbackBoxEtapa2.className = "feedback-container explicacao";
+        feedbackBoxEtapa2.style.display = "block";
+        btnAvancarEtapa2.classList.remove("escondido");
+      }
+    }
+  }
+
+  btnAvancarEtapa2.addEventListener("click", () => {
+    estado.indiceQuestao++;
+    const desafios = CONTEUDO_PEDAGOGICO.etapa2.desafios;
+
+    if (estado.indiceQuestao < desafios.length) {
+      carregarDesafioEtapa2();
+    } else {
+      // Transição para Tela Final
+      estado.etapa = 3;
+      telaEtapa2.classList.add("escondido");
+      telaFinal.classList.remove("escondido");
+
+      exibirTelaFinal();
+    }
+  });
+
+  // --- TELA FINAL LOGIC ---
+  function exibirTelaFinal() {
+    resumoPontos.textContent = `Etapa 1: ${estado.acertosDePrimeiraEtapa1} de 8 de primeira · Etapa 2: ${estado.acertosDePrimeiraEtapa2} de 5 de primeira`;
+
+    if (estado.questoesComErro.length > 0) {
+      secaoValeRever.classList.remove("escondido");
+      listaValeRever.innerHTML = "";
+      estado.questoesComErro.forEach(pista => {
+        const li = document.createElement("li");
+        li.textContent = pista;
+        listaValeRever.appendChild(li);
+      });
+    } else {
+      secaoValeRever.classList.add("escondido");
+    }
+  }
+
+  btnReiniciar.addEventListener("click", () => {
+    location.reload();
   });
 });
