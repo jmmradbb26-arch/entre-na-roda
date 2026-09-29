@@ -1,50 +1,75 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 1.0.0 (Initial establishment from constitution-entrada.md)
+- Modified principles: N/A (Initial adoption)
+- Added sections: Core Principles (I to VI), Restrições adicionais e fluxo de desenvolvimento, Governança
+- Removed sections: None
+- Follow-up TODOs: None
+-->
+# Entre na Roda Constitution
+
+Princípios que governam todas as decisões de especificação, planejamento e implementação desta aplicação. Em caso de conflito entre um pedido ao agente de codificação e esta Constitution, prevalece a Constitution, até que a equipe a altere formalmente (ver Governança).
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Adequação pedagógica (NÃO NEGOCIÁVEL)
+- Toda interação da aplicação DEVE estar ligada à habilidade principal EF35EF15 ou a um dos três descritores de desempenho registrados no README (sócio-afetivo, cognitivo, motor). Funcionalidade sem esse vínculo não entra no escopo.
+- Todo feedback DEVE explicar o critério por trás da resposta. Um feedback que diga apenas "certo" ou "errado" não é permitido.
+- Após um erro, a criança DEVE receber uma pista e a oportunidade de tentar de novo antes de a resposta correta ser revelada.
+- A aplicação NÃO DEVE usar ranking, comparação entre alunos, cronômetro de pressão nem perda de "vidas". O progresso é mostrado em relação ao próprio percurso da criança.
+- Ao final de cada atividade, a criança DEVE ver o que acertou, quais critérios precisa rever e uma orientação para prosseguir.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**Justificativa:** o público tem de 8 a 10 anos, e o objetivo é compreender um conceito (luta versus briga) e um patrimônio cultural, não competir.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Respeito cultural e precisão histórica (NÃO NEGOCIÁVEL)
+- A capoeira DEVE ser apresentada como prática de resistência e expressão cultural da população negra no Brasil e como patrimônio cultural reconhecido.
+- Afirmações históricas DEVEM ter fonte registrada no repositório. Afirmações debatidas pelos historiadores, como um local ou data única de origem da capoeira, NÃO DEVEM ser apresentadas como fato.
+- Textos e ilustrações NÃO DEVEM reproduzir estereótipos sobre pessoas negras, sobre a capoeira ou sobre as religiões de matriz africana. As personagens DEVEM incluir crianças negras representadas de forma positiva e protagonista.
+- Todos os textos pedagógicos e culturais (situações, perguntas, feedbacks, frases históricas) DEVEM ficar em um arquivo de conteúdo separado do código, para que possam ser revisados por uma pessoa sem conhecimento de programação.
+- Textos culturais e históricos gerados pelo agente de codificação DEVEM ser revisados por uma pessoa da equipe antes da publicação. A revisão DEVE ser registrada.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Justificativa:** um conteúdo culturalmente impreciso ensinaria o oposto do que o projeto pretende.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Clareza da interface para crianças
+- Cada tela DEVE ter um único objetivo, apresentado em no máximo duas frases curtas, com vocabulário adequado a crianças de 8 a 10 anos.
+- Instruções DEVEM combinar texto e ícone ou imagem. Sempre que o navegador oferecer síntese de voz em português, as instruções DEVEM poder ser ouvidas por meio de um botão.
+- A criança DEVE saber sempre em que etapa está e quantas etapas faltam.
+- Nenhuma ação importante pode depender de gestos escondidos, menus ocultos ou leitura de textos longos.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Justificativa:** as crianças dessa faixa etária estão em fases diferentes de fluência leitora.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Acessibilidade
+- O contraste de texto DEVE atender ao nível AA das WCAG 2.1.
+- Alvos de toque DEVEM ter no mínimo 44 × 44 px. O texto de leitura DEVE ter no mínimo 18 px.
+- A informação NÃO DEVE depender apenas de cor: acerto e erro DEVEM ter também ícone e texto.
+- Toda interação de arrastar DEVE ter uma alternativa por toque ou clique (selecionar e depois escolher o destino) e DEVE ser operável pelo teclado.
+- Imagens com significado DEVEM ter texto alternativo. Todo áudio DEVE ter equivalente visual.
+- A aplicação DEVE funcionar em telas de 360 px a 1440 px de largura, sem rolagem horizontal.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### V. Simplicidade e escopo controlado
+- A aplicação DEVE ser um site estático em HTML, CSS e JavaScript, sem framework e sem etapa de build, publicado diretamente pelo GitHub Pages.
+- NÃO DEVE haver servidor próprio, banco de dados, login, chaves de API nem credenciais no navegador.
+- A aplicação NÃO DEVE coletar, enviar ou armazenar dados pessoais das crianças. O progresso, quando mantido, fica apenas no navegador do dispositivo.
+- Dependências externas só são aceitas quando indispensáveis e justificadas no plan.md. Recursos como imagens e sons DEVEM estar no repositório, com licença de uso registrada.
+- As etapas 1 ("Luta ou briga?") e 2 ("Conheça a roda") são essenciais. A etapa 3 ("No ritmo do berimbau") só pode ser implementada depois que as essenciais estiverem publicadas e testadas.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Justificativa:** o prazo é curto, e o público é infantil, o que exige proteção de dados.
+
+### VI. Verificabilidade
+- Todo requisito da especificação DEVE ter ao menos um critério de aceitação observável, redigido de forma que uma pessoa possa marcar "atende" ou "não atende".
+- DEVE existir um roteiro de testes manual cobrindo o fluxo completo de cada etapa em três tamanhos de tela: celular (360–414 px), tablet (768–834 px) e desktop (≥ 1280 px). Os resultados DEVEM ser registrados no README.
+- Antes da entrega, a aplicação DEVE ser verificada no endereço público do GitHub Pages, em outro navegador ou em janela privada.
+- Problemas encontrados no teste, no Converge ou na revisão DEVEM ser classificados pela origem (especificação, plano, tarefas ou código) e corrigidos nessa origem.
+
+## Restrições adicionais e fluxo de desenvolvimento
+
+- **Idioma:** português do Brasil em toda a interface e no conteúdo.
+- **Compatibilidade:** versões atuais do Chrome, Firefox, Safari e Edge, inclusive em dispositivos móveis.
+- **Desempenho:** a primeira tela deve carregar em conexão móvel comum sem espera perceptível. Imagens devem ser otimizadas.
+- **Funcionamento em sala:** a aplicação deve funcionar em duplas, em um único dispositivo, sem exigir cadastro.
+- **Fluxo de desenvolvimento:** As decisões pedagógicas são tomadas e revisadas pela equipe antes de qualquer implementação. O agente de codificação implementa somente tarefas registradas em tasks.md. Toda alteração feita pelo agente é revisada pela equipe antes do commit. Os commits devem ser pequenos e descritivos. Ambiguidades descobertas durante a implementação voltam para a especificação (Clarify).
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+Esta Constitution prevalece sobre as demais práticas do projeto. Alterações exigem decisão da equipe, registro do motivo e atualização do número de versão. Todo plano e toda revisão devem verificar a conformidade com estes princípios.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-09-29 | **Last Amended**: 2026-09-29
